@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="alramR.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>alram</title>
+  </head>
+  <body>
+    <div id="mainContainer">
+      <div id="container">
+        <div id="clock">
+          <span id="hours"></span> <span>:</span> <span id="mins"></span
+          ><span>:</span><span id="second"></span>
+        </div>
+        <div id="alramDisplay">
+          <span id="displalyhour"></span><span>:</span
+          ><span id="displaymin"></span>
+        </div>
+        <div id="inputs">
+          <input type="number" placeholder="hour" id="alramHour" /><br />
+          <input type="number" placeholder="min" id="alramMin" /><br />
+        </div>
+        <div id="buttonContainer">
+          <button id="oneB" type="button" value="Set" onclick="setalram(), display()">
+            set
+          </button>
+          <button id="twoB" onclick="stop()">clear</button>
+        </div>
+        <div id="image">
+          <img
+            id="bellImage"
+            src="bell.gif"
+            height="100px"
+            width="200px"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <script>
+      //function to make a clock
+
+      function clock() {
+        var time = new Date();
+        var hour = time.getHours();
+        var min = time.getMinutes();
+        var sec = time.getSeconds();
+        document.getElementById("hours").innerHTML = hour;
+        document.getElementById("mins").innerHTML = min;
+        document.getElementById("second").innerHTML = sec;
+      }
+      setInterval(clock, 500);
+      //function to display the set alram
+      function setalram() {
+        var hour = document.getElementById("alramHour").value;
+        window.localStorage.setItem("alramhour", hour);
+        var min = document.getElementById("alramMin").value;
+        window.localStorage.setItem("alrammin", min);
+      }
+      //To display the alram tme
+      function display() {
+        document.getElementById(
+          "displalyhour"
+        ).innerHTML = window.localStorage.getItem("alramhour");
+        document.getElementById(
+          "displaymin"
+        ).innerHTML = window.localStorage.getItem("alrammin");
+      }
+
+      function sound() {
+        var userHour = document.getElementById("displalyhour").innerHTML;
+        var userMin = document.getElementById("displaymin").innerHTML;
+        var hour = document.getElementById("hours").innerHTML;
+        var min = document.getElementById("mins").innerHTML;
+        var alram = new Audio();
+        alram.src = "sound.wav";
+        if (userHour == hour && userMin == min) {
+          alram.play();
+          document.getElementById("bellImage").style.display = "block";
+        } else {
+          alram.pause();
+          document.getElementById("bellImage").style.display = "none";
+        }
+      }
+      setInterval(sound, 100);
+      //to remove the local storage
+      function stop() {
+        window.localStorage.removeItem("alramhour");
+        window.localStorage.removeItem("alrammin");
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
