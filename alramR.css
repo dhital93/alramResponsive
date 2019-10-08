@@ -31,6 +31,8 @@
     font-size: 25px;
     color: red;
     padding-left: 10px;
+    width: 100%;
+    outline: none;
   }
   #buttonContainer {
     margin-top: 30px;
@@ -52,8 +54,12 @@
     color: white;
   }
   img {
-    margin-left: 30px;
     margin-top: 30px;
+  }
+  #image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
   #clock {
     display: flex;
