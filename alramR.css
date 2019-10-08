@@ -18,6 +18,7 @@
   #mins,
   #second {
     font-size: 50px;
+    font-family: "Righteous", cursive;
   }
   #displalyhour,
   #displaymin {
@@ -88,6 +89,8 @@
   #mins,
   #second {
     font-size: 50px;
+    font-family: "Righteous", cursive;
+    color: #80b3ff;
   }
   #displalyhour,
   #displaymin {
@@ -101,6 +104,7 @@
     font-size: 25px;
     color: red;
     padding-left: 10px;
+    outline: none;
   }
   #buttonContainer {
     margin-top: 30px;

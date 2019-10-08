@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="alramR.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,12 +16,12 @@
       <div id="container">
         <div id="clock">
           <div>
-          <span id="hours"></span> <span>:</span> <span id="mins"></span
-          ><span>:</span><span id="second"></span>
-        </div>
+            <span id="hours"></span> <span></span> <span id="mins"></span
+            ><span></span><span id="second"></span>
+          </div>
         </div>
         <div id="alramDisplay">
-          <span id="displalyhour"></span><span>:</span
+          <span id="displalyhour"></span><span></span
           ><span id="displaymin"></span>
         </div>
         <div id="inputs">
@@ -25,7 +29,12 @@
           <input type="number" placeholder="min" id="alramMin" /><br />
         </div>
         <div id="buttonContainer">
-          <button id="oneB" type="button" value="Set" onclick="setalram(), display()">
+          <button
+            id="oneB"
+            type="button"
+            value="Set"
+            onclick="setalram(), display()"
+          >
             set
           </button>
           <button id="twoB" onclick="stop()">clear</button>
@@ -49,8 +58,8 @@
         var hour = time.getHours();
         var min = time.getMinutes();
         var sec = time.getSeconds();
-        document.getElementById("hours").innerHTML = hour;
-        document.getElementById("mins").innerHTML = min;
+        document.getElementById("hours").innerHTML = hour + ":";
+        document.getElementById("mins").innerHTML = min + ":";
         document.getElementById("second").innerHTML = sec;
       }
       setInterval(clock, 500);
@@ -63,12 +72,10 @@
       }
       //To display the alram tme
       function display() {
-        document.getElementById(
-          "displalyhour"
-        ).innerHTML = window.localStorage.getItem("alramhour");
-        document.getElementById(
-          "displaymin"
-        ).innerHTML = window.localStorage.getItem("alrammin");
+        document.getElementById("displalyhour").innerHTML =
+          window.localStorage.getItem("alramhour") + ":";
+        document.getElementById("displaymin").innerHTML =
+          window.localStorage.getItem("alrammin") + ":";
       }
 
       function sound() {
