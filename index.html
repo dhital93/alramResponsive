@@ -11,13 +11,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>alram</title>
   </head>
-  <body>
+  <body onload="display()">
     <div id="mainContainer">
       <div id="container">
         <div id="clock">
           <div>
-            <span id="hours"></span> <span></span> <span id="mins"></span
-            ><span></span><span id="second"></span>
+            <span id="hours"></span> <span>:</span>
+            <span id="mins"></span>:<span></span><span id="second"></span>
           </div>
         </div>
         <div id="alramDisplay">
@@ -58,8 +58,8 @@
         var hour = time.getHours();
         var min = time.getMinutes();
         var sec = time.getSeconds();
-        document.getElementById("hours").innerHTML = hour + ":";
-        document.getElementById("mins").innerHTML = min + ":";
+        document.getElementById("hours").innerHTML = hour;
+        document.getElementById("mins").innerHTML = min;
         document.getElementById("second").innerHTML = sec;
       }
       setInterval(clock, 500);
@@ -72,10 +72,12 @@
       }
       //To display the alram tme
       function display() {
-        document.getElementById("displalyhour").innerHTML =
-          window.localStorage.getItem("alramhour") + ":";
-        document.getElementById("displaymin").innerHTML =
-          window.localStorage.getItem("alrammin") + ":";
+        document.getElementById(
+          "displalyhour"
+        ).innerHTML = window.localStorage.getItem("alramhour");
+        document.getElementById(
+          "displaymin"
+        ).innerHTML = window.localStorage.getItem("alrammin");
       }
 
       function sound() {
